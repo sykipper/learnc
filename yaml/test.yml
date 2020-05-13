@@ -1,0 +1,23 @@
+server:
+  version: 5
+  name: ome
+  type: origin
+  ip: *
+  bind:
+    providers:
+      - rtmp:
+          port: 1935
+    publishers:
+      - ovt:
+          port: 1935
+      - hls:
+          port: 80
+      - dash:
+          port: 80
+      - webrtc:
+          signalling:
+            port: 3333
+          iceCandidates:
+            - iceCandidate: "*:10000-10005/udp"
+
+      
